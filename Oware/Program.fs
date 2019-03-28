@@ -32,7 +32,30 @@ state : Gamestates
 }
 
 let getSeeds n board =
-    match board with
+    match (n>0&&n<=6),(n>6&&n<=12) with
+    |true,false-> match board with
+                  |{player1=a;player2=_;state=c} -> let (a,b,c,d,e,f)= a.houses
+                                                    match n with 
+                                                    |1 -> a.seedsnum
+                                                    |2 ->b.seedsnum
+                                                    |3 -> c.seedsnum
+                                                    |4 -> d.seedsnum
+                                                    |5 -> e.seedsnum
+                                                    |6 -> f.seedsnum
+                                                    | _ -> failwith "Not Implemented"
+    |false , true -> match board with
+                     |{player1=_;player2=b;state=c} -> let (a,b,c,d,e,f)= b.houses
+                                                       match n with 
+                                                       |1 -> a.seedsnum
+                                                       |2 ->b.seedsnum
+                                                       |3 -> c.seedsnum
+                                                       |4 -> d.seedsnum
+                                                       |5 -> e.seedsnum
+                                                       |6 -> f.seedsnum
+                                                       | _ -> failwith "Not Implemented"
+    | _ -> failwith "Not Implemented"
+
+    (*match board with
     |{player1=a;player2=b;state=c} -> match a.houses with
                                       |(e,f,g,h,i,j)  -> match n with
                                                          |e.HouseNum -> e.seedsnum
@@ -45,7 +68,7 @@ let getSeeds n board =
                                                  
                                                            
 
-    | _ ->failwith "Not implemented"
+    | _ ->failwith "Not implemented"*)
   
 let useHouse n board =
 
