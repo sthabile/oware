@@ -65,6 +65,7 @@ let start position =
         seedsnum=0}
     let p1 =
         { houses=({MyHouse with HouseNum=1},{MyHouse with HouseNum=2},{MyHouse with HouseNum=3},{MyHouse with HouseNum=4},{MyHouse with HouseNum=5},{MyHouse with HouseNum=6});
+
          ballsCollected=0}
 
     let p2 =
@@ -73,6 +74,14 @@ let start position =
 
     let ReturnGame= 
         { player1 =p1;player2=p2;state=Draw}
+
+    let p2 =
+        { houses=({MyHouse with HouseNum=1},{MyHouse with HouseNum=2},{MyHouse with HouseNum=3},{MyHouse with HouseNum=4},{MyHouse with HouseNum=5},{MyHouse with HouseNum=6});
+         ballsCollected = 0}
+
+    let ReturnGame= 
+        { player1= p1;player2=p2;state=Draw}
+
    
     (*an initiated game*)
    
@@ -82,11 +91,12 @@ let start position =
     | North -> {ReturnGame with state = North's_Turn}
     | _ -> failwith "Not implemented"
     
-
+    (*Accepting a board and geneartion scores of captured seeds of both South and North houses*)
 let score board =
-    ()
-    failwith "Not implemented"
-
+    let southScore =board.player1.ballsCollected
+    let northScore= board.player2.ballsCollected
+    southScore, northScore
+    
 let gameState board =
     match board with
     |{player1=_;player2=_ ;state= Draw} -> "Draw"
