@@ -76,9 +76,10 @@ let start position =
     
 
 let score board =
-    ()
-    failwith "Not implemented"
-
+    let southScore =board.player1.ballsCollected
+    let northScore= board.player2.ballsCollected
+    southScore, northScore
+    
 let gameState board =
     match board with
     |{player1=_;player2=_ ;state= Draw} -> "Draw"
