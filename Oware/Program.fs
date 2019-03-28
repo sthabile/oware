@@ -55,39 +55,24 @@ let getSeeds n board =
                                                        | _ -> failwith "Not Implemented"
     | _ -> failwith "Not Implemented"
 
-    (*match board with
-    |{player1=a;player2=b;state=c} -> match a.houses with
-                                      |(e,f,g,h,i,j)  -> match n with
-                                                         |e.HouseNum -> e.seedsnum
-                                                         |f.HouseNum -> f.seedsnum
-                                                         |g.HouseNum -> g.seedsnum
-                                                         |h.HouseNum -> h.seedsnum
-                                                         |i.HouseNum -> i.seedsnum
-                                                         |j.HouseNum -> j.seedsnum
-                                                         | _ -> (*Match the houses of player 2*)
-                                                 
-                                                           
-
-    | _ ->failwith "Not implemented"*)
-  
 let useHouse n board =
-
+    
     failwith "Not implemented"
 
 let start position =
-  (*  let MyHouse = 
+    let MyHouse = 
         { HouseNum=0;
         seedsnum=0}
     let p1 =
-        { ({MyHouse with HouseNum=1},{MyHouse with HouseNum=2},{MyHouse with HouseNum=3},{MyHouse with HouseNum=4},{MyHouse with HouseNum=5},{MyHouse with HouseNum=6})
+        { houses=({MyHouse with HouseNum=1},{MyHouse with HouseNum=2},{MyHouse with HouseNum=3},{MyHouse with HouseNum=4},{MyHouse with HouseNum=5},{MyHouse with HouseNum=6});
          ballsCollected=0}
 
     let p2 =
-        { ({MyHouse with HouseNum=1},{MyHouse with HouseNum=2},{MyHouse with HouseNum=3},{MyHouse with HouseNum=4},{MyHouse with HouseNum=5},{MyHouse with HouseNum=6})
+        {houses = ({MyHouse with HouseNum=7},{MyHouse with HouseNum=8},{MyHouse with HouseNum=9},{MyHouse with HouseNum=10},{MyHouse with HouseNum=11},{MyHouse with HouseNum=12})
          ballsCollected=0}
 
-    let ReturnedGame= 
-        { p1;p2;state=Draw}
+    let ReturnGame= 
+        { player1 =p1;player2=p2;state=Draw}
    
     (*an initiated game*)
    
@@ -95,7 +80,7 @@ let start position =
     match position with
     | South -> {ReturnGame with state = South's_Turn}
     | North -> {ReturnGame with state = North's_Turn}
-    | _ -> *)failwith "Not implemented"
+    | _ -> failwith "Not implemented"
     
 
 let score board =
