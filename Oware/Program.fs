@@ -1,5 +1,7 @@
 ﻿module Oware
 
+open System.Data
+
 
 type StartingPosition =
     | South
@@ -29,22 +31,48 @@ player2 : player
 state : Gamestates
 }
 
-let getSeeds n board = failwith "Not implemented"
+let getSeeds n board =
+    match board with
+    |{player1=a;player2=b;state=c} -> match a.houses with
+                                      |(e,f,g,h,i,j)  -> match n with
+                                                         |e.HouseNum -> e.seedsnum
+                                                         |f.HouseNum -> f.seedsnum
+                                                         |g.HouseNum -> g.seedsnum
+                                                         |h.HouseNum -> h.seedsnum
+                                                         |i.HouseNum -> i.seedsnum
+                                                         |j.HouseNum -> j.seedsnum
+                                                         | _ -> (*Match the houses of player 2*)
+                                                 
+                                                           
+
+    | _ ->failwith "Not implemented"
   
-let useHouse n board = failwith "Not implemented"
+let useHouse n board =
+
+    failwith "Not implemented"
 
 let start position =
-    let ReturnGame = {player1= {Houses=({{HouseNum=1};{seedsnum=0}},{{num=2};{seedsnum=0}},{{num=3};{seedsnum=0}}, {{num=4};{seedsnum=0}},{{num=5};{seedsnum=0}},{{num=6};{seedsnum=0}})} ; ballscollected =0};
-                     {player2= {Houses=({{HouseNum=7};{seedsnum=0}},{{num=8};{seedsnum=0}},{{num=9};{seedsnum=0}}, {{num=10};{seedsnum=0}},{{num=11};{seedsnum=0}},{{num=12};{seedsnum=0}})} ; ballscollected =0};
-                     state =  North's_Turn }
- 
-                     (*an initiated game*)
+  (*  let MyHouse = 
+        { HouseNum=0;
+        seedsnum=0}
+    let p1 =
+        { ({MyHouse with HouseNum=1},{MyHouse with HouseNum=2},{MyHouse with HouseNum=3},{MyHouse with HouseNum=4},{MyHouse with HouseNum=5},{MyHouse with HouseNum=6})
+         ballsCollected=0}
+
+    let p2 =
+        { ({MyHouse with HouseNum=1},{MyHouse with HouseNum=2},{MyHouse with HouseNum=3},{MyHouse with HouseNum=4},{MyHouse with HouseNum=5},{MyHouse with HouseNum=6})
+         ballsCollected=0}
+
+    let ReturnedGame= 
+        { p1;p2;state=Draw}
+   
+    (*an initiated game*)
    
    (*use a match expression to change the who is playing based on the input position*)
     match position with
     | South -> {ReturnGame with state = South's_Turn}
     | North -> {ReturnGame with state = North's_Turn}
-    | _ -> failwith "Not implemented"
+    | _ -> *)failwith "Not implemented"
     
 
 let score board =
