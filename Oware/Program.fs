@@ -56,7 +56,14 @@ let getSeeds n board =
     | _ -> failwith "Not Implemented"
 
 let useHouse n board =
+    (*let AllHouses = board.player1.houses,board.player2.houses
+    match n with
+    | 1-> let (a,b,c,d,e,f)=board.player1.houses
+          let seeds= a.seedsnum
+          let (a,b,c,d,e,f,g,h,i,j,k,l)= AllHouses *)
+
     
+                    
     failwith "Not implemented"
 
 let start position =
@@ -93,8 +100,8 @@ let score board =
 let gameState board =
     match board with
     |{player1=_;player2=_ ;state= Draw} -> "Draw"
-    |{player1=_;player2=_ ;state= North's_Turn} -> "Draw"
-    |{player1=_;player2=_ ;state= South's_Turn} -> "South's Turn"
+    |{player1=_;player2=_ ;state= North's_Turn} -> "North's turn"
+    |{player1=_;player2=_ ;state= South's_Turn} -> "South's turn"
     |{player1=_;player2=_ ;state= North_won} -> "North Won"
     |{player1=_;player2=_ ;state= South_Won} -> "South Won"
     | _ ->  failwith "Not implemented"
