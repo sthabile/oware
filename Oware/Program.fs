@@ -56,15 +56,39 @@ let getSeeds n board =
     | _ -> failwith "Not Implemented"
 
 let useHouse n board =
-    (*let AllHouses = board.player1.houses,board.player2.houses
-    match n with
-    | 1-> let (a,b,c,d,e,f)=board.player1.houses
-          let seeds= a.seedsnum
-          let (a,b,c,d,e,f,g,h,i,j,k,l)= AllHouses *)
+    //get the number of seeds to distribite
+    let seeds = getSeeds n board  
 
-    
-                    
-    failwith "Not implemented"
+    let (a,b,c,d,e,f) =board.player1.houses
+    let (g,h,i,j,k,l) =board.player2.houses
+
+    let EmptyTheHouse HouseNumber board = 
+         failwith "Just for now"
+
+    let rec DistributeSeeds NumSeeds board =
+        failwith "Just for now"
+
+    let updatedHouses = match (n>0&&n<=6) , (n>6&&n<=12) with
+                        |true,false -> match n with // match from 1 tp 6
+                                        |1 -> EmptyTheHouse 1 board // call empty the house with house number 
+                                        |2 -> EmptyTheHouse 2 board
+                                        |3 -> EmptyTheHouse 3 board
+                                        | 4 -> EmptyTheHouse 4 board
+                                        | 5-> EmptyTheHouse 5 board
+                                        | 6 -> EmptyTheHouse 6 board
+                                        |_ -> failwith "not implemented"
+                                        
+                        |false, true -> match n with //macth n with 7 to 12  
+                                        |7 -> EmptyTheHouse 7 board // call empty the house with house number 
+                                        |8 -> EmptyTheHouse 8 board
+                                        |9 -> EmptyTheHouse 9 board
+                                        | 10 -> EmptyTheHouse 10 board
+                                        | 11-> EmptyTheHouse 11 board
+                                        | 12-> EmptyTheHouse 12 board
+                                        |_ -> failwith "not implemented"
+                        | _ -> failwith "Not implemented"
+
+    updatedHouses
 
 let start position =
     let MyHouse = 
