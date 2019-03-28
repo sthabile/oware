@@ -75,13 +75,6 @@ let start position =
     let ReturnGame= 
         { player1 =p1;player2=p2;state=Draw}
 
-    let p2 =
-        { houses=({MyHouse with HouseNum=1},{MyHouse with HouseNum=2},{MyHouse with HouseNum=3},{MyHouse with HouseNum=4},{MyHouse with HouseNum=5},{MyHouse with HouseNum=6});
-         ballsCollected = 0}
-
-    let ReturnGame= 
-        { player1= p1;player2=p2;state=Draw}
-
    
     (*an initiated game*)
    
